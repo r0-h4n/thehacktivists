@@ -1,0 +1,12 @@
+name: Build Docker container
+ steps:
+  - name: Checkout code
+    uses: actions/checkout@v3
+  - name: Use Docker Compose action
+    uses: isbang/compose-action@v1.5.1
+    with:
+      compose-file: "./docker/docker-compose.yml"
+      down-flags: "--volumes"
+      services: |
+        helloworld2
+        helloworld3
